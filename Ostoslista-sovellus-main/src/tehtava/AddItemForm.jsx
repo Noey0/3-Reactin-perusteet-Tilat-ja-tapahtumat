@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { CartContext } from "../CartContext";
 
-function AddItemForm({ onAddItem }) {
+function AddItemForm() {
+  const { addItem } = useContext(CartContext);
   const [inputValue, setInputValue] = useState("");
 
   function handleSubmit(event) {
@@ -8,7 +10,7 @@ function AddItemForm({ onAddItem }) {
 
     if (inputValue === "") return;
 
-    onAddItem(inputValue);
+    addItem(inputValue);
 
     setInputValue("");
   }

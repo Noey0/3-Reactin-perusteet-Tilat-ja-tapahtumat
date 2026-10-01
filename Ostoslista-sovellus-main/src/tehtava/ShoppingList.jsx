@@ -1,28 +1,12 @@
-import { useState } from "react";
 import AddItemForm from "./AddItemForm";
 import ItemList from "./ItemList";
 
 function ShoppingList() {
-  const [items, setItems] = useState([]);
-
-  function addItem(newItemText) {
-    const newItem = {
-      id: crypto.randomUUID(),
-      text: newItemText,
-    };
-
-    setItems([...items, newItem]);
-  }
-
-  function removeItem(id) {
-    setItems(items.filter((item) => item.id !== id));
-  }
-
   return (
     <div>
-      <AddItemForm onAddItem={addItem} />
+      <AddItemForm />
 
-      <ItemList items={items} onRemoveItem={removeItem} />
+      <ItemList />
     </div>
   );
 }
